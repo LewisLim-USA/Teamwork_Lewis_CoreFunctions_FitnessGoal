@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class UserControllerForm implements Initializable {
+
 
     private List<User> listprofile = new ArrayList<>(); // grow and shrink
     private List<User> readprofile = new ArrayList<>(); // user objects
