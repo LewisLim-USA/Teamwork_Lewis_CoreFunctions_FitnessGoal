@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.ProgressVisualizationController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.ProgressVisualizationController">
    <children>
-      <ProgressIndicator layoutX="159.0" layoutY="143.0" prefHeight="175.0" prefWidth="246.0" progress="0.42" />
+      <PieChart fx:id="nutritionPieChart" layoutX="401.0" layoutY="161.0" prefHeight="400.0" prefWidth="475.0" title="Calories consumed vs. calories burned" />
    </children>
 </AnchorPane>
