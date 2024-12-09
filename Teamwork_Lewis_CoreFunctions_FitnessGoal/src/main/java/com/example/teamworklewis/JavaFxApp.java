@@ -17,6 +17,16 @@ public class JavaFxApp extends Application {
         stage.show();
     }
 
+    // Method to load a new scene
+    public static void loadScene(String fxmlFile, String title) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaFxApp.class.getResource(fxmlFile));
+        Scene scene = new Scene(fxmlLoader.load());
+        primaryStage.setTitle(title);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+
     public static void main(String[] args) {
         launch();
     }

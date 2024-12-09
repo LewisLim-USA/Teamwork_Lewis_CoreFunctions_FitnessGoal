@@ -90,4 +90,13 @@ public class UserControllerForm implements Initializable {
 
         System.out.println(readprofile.toString());
     }
+
+    @FXML
+    private void handleGoToProgressVisualization(ActionEvent event) {
+        try {
+            JavaFxApp.loadScene("View/ProgressVisualization.fxml", "Progress Visualization");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
