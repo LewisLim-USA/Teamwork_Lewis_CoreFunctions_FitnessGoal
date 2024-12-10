@@ -26,7 +26,7 @@ import java.util.*;
 import java.util.List;
 
 
-public class NutritionApp extends Application {
+public class NutritionController extends Application {
 
     @FXML
     private TextField mealNameField;
@@ -73,7 +73,7 @@ public class NutritionApp extends Application {
 
 
 
-        NutritionApp controller = loader.getController();
+        NutritionController controller = loader.getController();
         controller.initialize();
 
         Scene scene = new Scene(root);
