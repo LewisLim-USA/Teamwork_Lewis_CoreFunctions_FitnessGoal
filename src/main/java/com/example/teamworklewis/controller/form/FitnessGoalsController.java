@@ -116,13 +116,7 @@ public class FitnessGoalsController extends Application {
 
 
         StringBuilder plan = new StringBuilder();
-        plan.append  ("hello :").append(name).append("!\n")
-                .append("age: ").append(age).append("\n")
-                .append("sex: ").append(gender).append("\n")
-                .append("Weight: ").append(weight).append(" kg\n")
-                .append("height: ").append(height).append(" cm\n")
-                .append("BMI: ").append(String.format("%.2f", bmi)).append(" (").append(bmiCategory).append(")\n\n")
-                .append("according to your goal“").append(goal).append("”，give a plan  ：\n");
+        plan.append("according to your goal“").append(goal).append("”，give a plan  ：\n");
         switch (goal) {
             case "减脂lose weight":
                 plan.append("- Perform 4-5 aerobic exercises per week (e.g., running, cycling)\n")
