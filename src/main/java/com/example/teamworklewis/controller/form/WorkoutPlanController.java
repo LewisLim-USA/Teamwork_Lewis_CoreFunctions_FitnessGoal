@@ -1,4 +1,4 @@
-package com.example.workoutplan;
+package com.example.teamworklewis.controller.form;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

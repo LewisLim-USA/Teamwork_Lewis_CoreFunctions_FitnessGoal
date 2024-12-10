@@ -1,4 +1,4 @@
-package com.example.workoutplan;
+package com.example.teamworklewis.controller.form;
 import java.time.LocalDate;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -9,7 +9,7 @@ import javafx.scene.control.skin.DatePickerSkin;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class Calender extends Application {
+public class WorkoutCalender extends Application {
     @Override
 
     public void start(Stage stage) {
