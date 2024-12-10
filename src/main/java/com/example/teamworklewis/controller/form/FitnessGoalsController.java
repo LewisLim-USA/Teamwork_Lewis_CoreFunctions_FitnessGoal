@@ -124,17 +124,17 @@ public class FitnessGoalsController extends Application {
                 .append("BMI: ").append(String.format("%.2f", bmi)).append(" (").append(bmiCategory).append(")\n\n")
                 .append("according to your goal“").append(goal).append("”，give a plan  ：\n");
         switch (goal) {
-            case "Weight Loss":
+            case "减脂lose weight":
                 plan.append("- Perform 4-5 aerobic exercises per week (e.g., running, cycling)\n")
                         .append("- Each session lasts 30-60 minutes\n")
                         .append("- Control daily calorie intake and avoid high-sugar, high-fat foods\n");
                 break;
-            case "Muscle Gain":
+            case "增肌keep fit":
                 plan.append("- Perform 3-4 strength training sessions per week (e.g., squats, bench press)\n")
                         .append("- Each session lasts 45-60 minutes\n")
                         .append("- Increase protein intake and maintain a calorie surplus\n");
                 break;
-            case "Stay Healthy":
+            case "保持健康 keep healthy":
                 plan.append("- Perform 3-4 moderate-intensity workouts per week (e.g., brisk walking, yoga)\n")
                         .append("- Maintain a balanced diet and ensure sufficient sleep\n");
                 break;
