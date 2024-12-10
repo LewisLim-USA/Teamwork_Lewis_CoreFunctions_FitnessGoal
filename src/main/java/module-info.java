@@ -2,6 +2,7 @@ module com.example.teamworklewis {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires org.json;
 
 
     opens com.example.teamworklewis to javafx.fxml;
