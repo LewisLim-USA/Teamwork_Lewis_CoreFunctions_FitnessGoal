@@ -68,9 +68,10 @@ public class NutritionApp extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         //FMXL File
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/teamworklewis/controller/form/nutrition.fxml"));
         Parent root = loader.load();  // This will load the FXML file
 
+        System.out.println(getClass().getResource("/nutrition.fxml"));
 
 
         NutritionApp controller = loader.getController();
