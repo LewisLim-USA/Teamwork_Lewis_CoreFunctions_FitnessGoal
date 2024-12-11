@@ -2,9 +2,8 @@ package com.example.teamworklewis.dao;
 
 import java.util.List;
 
-public interface DAOinterface<T>{
-
+public interface DAOInterface<T> {
     List<T> getAll();
-    String findById (List<T> object);
-    T add (T id);
+    String add(List<T> object);
+    T getObj(int id);
 }
