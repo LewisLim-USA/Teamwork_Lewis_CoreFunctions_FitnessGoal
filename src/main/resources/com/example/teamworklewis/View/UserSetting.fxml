@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.UserSettingController">
+    <Button fx:id="GoToForgotPassword" layoutX="239.0" layoutY="217.0" mnemonicParsing="false" onAction="#switchToForgotPassword" text="Forgot Password?" />
+    <Label layoutX="163.0" layoutY="31.0" text="User Settings">
+        <font>
+          <Font size="44.0" />
+        </font>
+    </Label>
+</AnchorPane>

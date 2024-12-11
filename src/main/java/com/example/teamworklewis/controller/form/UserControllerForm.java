@@ -1,13 +1,16 @@
 package com.example.teamworklewis.controller.form;
 
+import com.example.teamworklewis.controller.service.UserController;
+import com.example.teamworklewis.dto.UserDto;
 import com.example.teamworklewis.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
-
+import javafx.scene.control.TextField;
 
 import java.io.*;
 import java.net.URL;
@@ -17,79 +20,141 @@ import java.util.ResourceBundle;
 
 public class UserControllerForm implements Initializable {
 
-    private List<User> listprofile = new ArrayList<>(); // grow and shrink
-    private List<User> readprofile = new ArrayList<>(); // user objects
-
+    List<User> listprofile = new ArrayList<>();
+    List<User> readprofile = new ArrayList<>();
     @FXML
-    private ListView<String> lstUsers;
+    private ListView<String> listall;
     private ObservableList<String> msgData;
+    @FXML
+    private TextField txtsearchid;
 
     @FXML
-    protected void ListAllUsers(ActionEvent event) { // List User box in Gluon
+    private TextField txtusername;
+    @FXML
+    private TextField txtemail;
+    @FXML
+    private TextField txtage;
+    @FXML
+    private TextField txtid;
+    @FXML
+    private TextField txtgender;
+
+
+
+
+    @FXML
+    protected void ListAllUsers(ActionEvent event) {
+       deserialize_user_profile();
         msgData.clear();
 
-        for (User user : readprofile) {
+
+        for (UserDto user : UserController.getInstance().getUser()) {
             msgData.add(user.toString());
         }
+
+        // Ensure the ListView is updated with the new data
+        listall.setItems(msgData);
+        // Output the user information to the console
+
+
+        /*
+        UserController.getInstance().getAllUser();
+        for (User user : UserController.getUserContainer()) {
+            msgData.add(user.toString());
+        }
+*/
+
+    }
+
+
+    @FXML
+    protected void SearchUser(ActionEvent event) {
+
+        msgData.clear();
+        UserDto s = UserController.getInstance().getUserById(Integer.parseInt(txtsearchid.getText()));
+        if(s!= null)
+        msgData.add(s.toString());
+        else {
+            Alert a = new Alert(Alert.AlertType.NONE);
+            a.setAlertType(Alert.AlertType.INFORMATION);
+            a.setContentText("No userid found");
+            a.showAndWait();
+        }
+
+    }
+
+    @FXML
+    protected void SaveUser(ActionEvent event) {
+        String s = UserController.getInstance().addUser(new Object[] {txtusername.getText(), txtemail.getText(), Integer.parseInt(txtage.getText()), txtgender.getText(), Integer.parseInt(txtid.getText())});
+        txtusername.clear();
+        txtage.clear();
+        txtgender.clear();
+        txtemail.clear();
+        txtid.clear();
+        Alert a = new Alert(Alert.AlertType.NONE);
+        a.setAlertType(Alert.AlertType.INFORMATION);
+        a.setContentText(s);
+        a.showAndWait();
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        //serialize_user_profile();
-        deserialize_user_profile();
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
         msgData = FXCollections.observableArrayList();
-        lstUsers.setItems(msgData); //binding automatically, not called by programs
+        listall.setItems(msgData);
     }
 
     public void serialize_user_profile() {
-        try (
-                ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("array.dat", false))
+
+        User up1 = new User("sam", "sam@gmail.com", 24, "male",1 );
+        User up2 = new User("robert", "robert@gmail.com", 34, "male",2 );
+        User up3 = new User("nancy", "nancy@outlook.com", 25, "female",3 );
+
+
+        listprofile.add(up1);
+        listprofile.add(up2);
+        listprofile.add(up3);
+
+
+
+
+      //  }
+        try ( // Create an output stream for file array.dat
+              ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("array.dat", false));
         ) {
-
-            User up1 = new User(1, "sam", "sam@gmail.com", 24, "Male");
-            User up2 = new User(2, "sam", "sam@gmail.com", 34, "Female");
-            User up3 = new User(3, "sam", "sam@gmail.com", 42, "Male");
-
-            listprofile.add(up1);
-            listprofile.add(up2);
-            listprofile.add(up3);
-
-            for (int i = 0; i < listprofile.size(); i++) {
+            // Write arrays to the object output stream
+            for(int i = 0; i < 3; i++)
                 output.writeObject(listprofile.get(i));
-            }
 
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException ex) {
+
         }
+
+
     }
 
-    public void deserialize_user_profile() { // to read from printwriter file
+    public void deserialize_user_profile() {
+        //deserialize
+
         try {
-            ObjectInputStream input = new ObjectInputStream(new FileInputStream("array.dat"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("array.dat"));
 
             User s;
             while (true) {
                 try {
-                    s = (User) input.readObject();
+                    s = (User) ois.readObject();
                     readprofile.add(s);
                 } catch (Exception e) {
-                    break;
-                }
-
-                // object file read, instead of a marker to end
+                    break; }
             }
-            input.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            ois.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         System.out.println(readprofile.toString());
-    }
 
+    }
 
 }
