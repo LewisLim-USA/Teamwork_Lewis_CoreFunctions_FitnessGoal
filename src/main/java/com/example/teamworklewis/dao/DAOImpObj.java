@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAOImpObj<T> implements DAOInterface<T> {
+public class DAOImpObj<T> implements DAOinterface<T> {
 
     @Override
     public String add(List<T> object) {
