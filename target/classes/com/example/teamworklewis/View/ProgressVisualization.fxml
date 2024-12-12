@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #008080;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.ProgressVisualizationController">
    <children>
-      <PieChart fx:id="nutritionPieChart" layoutX="84.0" layoutY="47.0" legendSide="LEFT" prefHeight="305.0" prefWidth="431.0" title="Calories consumed vs. calories burned" />
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#SwitchToUserProfile" text="Back to UserProfile" />
+      <SplitPane dividerPositions="0.1442953020134228" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #008080;">
+               <children>
+                  <Text fill="WHITE" layoutX="161.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Progress Visualization" wrappingWidth="274.24017333984375">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="backToHome" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#SwitchToUserProfile" text="Back" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #b0e0e6;">
+               <children>
+                  <PieChart layoutX="14.0" layoutY="25.0" prefHeight="212.0" prefWidth="274.0" style="-fx-background-color: #ffffff;" />
+                  <Text layoutX="34.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="calorie consumption vs. calories burned" wrappingWidth="233.33333333333326" />
+                  <LineChart layoutX="299.0" layoutY="17.0" prefHeight="227.0" prefWidth="292.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <Text layoutX="431.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="weight trends" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

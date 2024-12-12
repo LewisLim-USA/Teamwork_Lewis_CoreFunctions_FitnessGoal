@@ -21,7 +21,7 @@
                         <Font size="26.0" />
                      </font>
                   </Text>
-                  <Button fx:id="backToHome" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#backTOHomeOnAction" text="Back" />
+                  <Button fx:id="backToHome" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#SwitchToUserProfile" text="Back" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #b0e0e6;">
