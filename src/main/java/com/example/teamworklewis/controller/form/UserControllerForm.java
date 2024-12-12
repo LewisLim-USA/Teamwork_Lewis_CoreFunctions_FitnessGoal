@@ -7,10 +7,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
@@ -22,6 +27,45 @@ public class UserControllerForm implements Initializable {
 
     List<User> listprofile = new ArrayList<>();
     List<User> readprofile = new ArrayList<>();
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    public void SwitchToUserProfile(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/UserForm.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void SwitchToUserSetting(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/UserSetting.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void SwitchToForgotPassword(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/ForgotPassword.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void SwitchToProgressVisualization(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/ProgressVisualization.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
     @FXML
     private ListView<String> listall;
     private ObservableList<String> msgData;

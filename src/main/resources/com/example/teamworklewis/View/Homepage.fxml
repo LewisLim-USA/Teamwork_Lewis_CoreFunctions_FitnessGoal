@@ -1,81 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<?import javafx.scene.image.Image?>
-<AnchorPane prefHeight="449.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.HomepageController" style="-fx-background-color: #E5E5E5;">
-    <children>
-        <!-- Sidebar -->
-        <VBox layoutX="10.0" layoutY="10.0" prefWidth="200.0" style="-fx-background-color: #2D665F;" spacing="20.0">
-            <Label text="Bodega Fitness" style="-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold;" alignment="CENTER" />
-            <Label text="TRACKER" style="-fx-text-fill: white; -fx-font-size: 14;" alignment="CENTER" />
-            <VBox spacing="10.0" alignment="CENTER_LEFT" style="-fx-padding: 10;">
-                <Button text="Profile" prefWidth="180.0" mnemonicParsing="false" style="-fx-font-size: 16; -fx-background-color: transparent; -fx-text-fill: white;" />
-                <Button text="Settings" prefWidth="180.0" mnemonicParsing="false" style="-fx-font-size: 16; -fx-background-color: transparent; -fx-text-fill: white;" />
-                <Button text="Customer Support" prefWidth="180.0" mnemonicParsing="false" style="-fx-font-size: 16; -fx-background-color: transparent; -fx-text-fill: white;" />
-            </VBox>
-            <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-padding: 10;">
-                <ImageView fitHeight="40.0" fitWidth="40.0" />
-                <VBox>
-                    <Label text="User2" style="-fx-text-fill: white; -fx-font-size: 14;" />
-                    <Label text="Hope you are doing well" style="-fx-text-fill: white; -fx-font-size: 12;" />
-                </VBox>
-            </HBox>
-        </VBox>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.teamworklewis.controller.form.UserControllerForm"
+            prefHeight="400.0" prefWidth="600.0" >
 
-        <!-- Main Content -->
-        <VBox layoutX="220.0" layoutY="10.0" spacing="20.0">
-            <!-- Header -->
-            <Label text="Home" style="-fx-font-size: 24; -fx-font-weight: bold;" />
-
-            <!-- Content Grid -->
-            <GridPane hgap="20.0" vgap="20.0">
-                <columnConstraints>
-                    <ColumnConstraints prefWidth="300.0" />
-                    <ColumnConstraints prefWidth="300.0" />
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints prefHeight="200.0" />
-                    <RowConstraints prefHeight="200.0" />
-                </rowConstraints>
-                <children>
-                    <VBox alignment="CENTER" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 10; -fx-padding: 10;">
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="https://www.freeiconspng.com/uploads/fitness-icon-png-24.png" />
-                            </image>
-                        </ImageView>
-                        <Label text="Workout Plans" style="-fx-font-size: 16;" />
-                    </VBox>
-                    <VBox alignment="CENTER" GridPane.columnIndex="1" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 10; -fx-padding: 10;">
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="https://www.freeiconspng.com/uploads/fitness-icon-png-24.png" />
-                            </image>
-                        </ImageView>
-                        <Label text="Nutrition Plans" style="-fx-font-size: 16;" />
-                    </VBox>
-                    <VBox alignment="CENTER" GridPane.rowIndex="1" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 10; -fx-padding: 10;">
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="https://www.freeiconspng.com/uploads/fitness-icon-png-24.png" />
-                            </image>
-                        </ImageView>
-                        <Label text="Progress Visualization" style="-fx-font-size: 16;" />
-                    </VBox>
-                    <VBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 10; -fx-padding: 10;">
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="https://wagescape.com/wp-content/uploads/2023/09/Screenshot-2023-09-10-at-9.22.28-PM-1080x675.png" />
-                            </image>
-                        </ImageView>
-                        <Label text="Fitness Goals" style="-fx-font-size: 16;" />
-                    </VBox>
-                </children>
-            </GridPane>
-        </VBox>
-    </children>
 </AnchorPane>

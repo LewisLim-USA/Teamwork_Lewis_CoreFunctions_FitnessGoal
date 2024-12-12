@@ -4,20 +4,22 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="449.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.UserControllerForm">
+<AnchorPane prefHeight="449.0" prefWidth="600.0" style="-fx-background-color: teal;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.UserControllerForm">
    <children>
-      <ListView fx:id="listall" layoutX="97.0" layoutY="87.0" prefHeight="200.0" prefWidth="425.0" />
-      <Button layoutX="246.0" layoutY="43.0" mnemonicParsing="false" onAction="#ListAllUsers" prefHeight="26.0" prefWidth="94.0" text="List user" />
-      <TextField fx:id="txtsearchid" layoutX="476.0" layoutY="43.0" prefHeight="26.0" prefWidth="68.0" />
-      <Label layoutX="408.0" layoutY="47.0" prefHeight="18.0" prefWidth="68.0" text="Userid" />
-      <Button layoutX="450.0" layoutY="14.0" mnemonicParsing="false" onAction="#SearchUser" prefHeight="26.0" prefWidth="131.0" text="Search User" />
-      <Button layoutX="284.0" layoutY="414.0" mnemonicParsing="false" onAction="#SaveUser" prefHeight="26.0" prefWidth="110.0" text="Add User" />
-      <GridPane fx:id="gridpane" gridLinesVisible="true" layoutX="198.0" layoutY="310.0" prefHeight="98.0" prefWidth="262.0" style="-fx-background-color: yellow;">
+      <ListView fx:id="listall" layoutX="217.0" layoutY="55.0" prefHeight="167.0" prefWidth="247.0" />
+      <Button layoutX="219.0" layoutY="233.0" mnemonicParsing="false" onAction="#ListAllUsers" prefHeight="26.0" prefWidth="94.0" text="List user" />
+      <TextField fx:id="txtsearchid" layoutX="495.0" layoutY="75.0" prefHeight="26.0" prefWidth="68.0" />
+      <Label layoutX="495.0" layoutY="55.0" prefHeight="18.0" prefWidth="68.0" text="Userid" />
+      <Button layoutX="495.0" layoutY="114.0" mnemonicParsing="false" onAction="#SearchUser" prefHeight="26.0" prefWidth="94.0" text="Search User" />
+      <Button layoutX="37.0" layoutY="278.0" mnemonicParsing="false" onAction="#SaveUser" prefHeight="26.0" prefWidth="110.0" text="Add User" />
+      <GridPane fx:id="gridpane" gridLinesVisible="true" layoutX="34.0" layoutY="323.0" prefHeight="86.0" prefWidth="247.0" style="-fx-background-color: yellow;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -43,6 +45,15 @@
             <TextField fx:id="txtid" style="-fx-background-color: coral;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button fx:id="GoToUserSetting" layoutX="14.0" layoutY="28.0" mnemonicParsing="false" text="Go to User Setting" />
+      <Button fx:id="GoToUserSetting" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#SwitchToUserSetting" text="Go to User Setting" />
+      <Button layoutX="18.0" layoutY="52.0" mnemonicParsing="false" onAction="#SwitchToForgotPassword" text="Forgot Password" />
+      <Button fx:id="GoToUserSetting1" layoutX="14.0" layoutY="88.0" mnemonicParsing="false" onAction="#SwitchToProgressVisualization" text="Go to Progress Vizualisation" />
+      <Label layoutX="219.0" layoutY="27.0" prefHeight="18.0" prefWidth="175.0" text="ALL USERS DATABASE" textFill="WHITE" />
+      <Label layoutX="42.0" layoutY="251.0" prefHeight="18.0" prefWidth="175.0" text="New User?" />
+      <ImageView fitHeight="149.0" fitWidth="270.0" layoutX="303.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="https://3dlook.ai/wp-content/uploads/2024/02/fitxpress-3.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
