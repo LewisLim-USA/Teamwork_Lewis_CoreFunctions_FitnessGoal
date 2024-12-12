@@ -4,11 +4,11 @@ import com.example.teamworklewis.model.User;
 
 import java.util.function.Function;
 
-public class TheBetterDtoMapper implements Function<User,UserDto> {
+public class DtoMapper1 implements Function<User,UserDto> {
 
 
 
-    //Polymorphisms enabled
+
     @Override
     public UserDto apply(User user) {
 
