@@ -39,12 +39,12 @@ Define attributes like id, username, password, email, age, gender, etc.
 Ensure encapsulation with private fields and public getters/setters.
 Add methods like toString() for serialization purposes.
 2. Data Access Object (DAO)
-DAOInterface.java:
+TheBetterDtoMapper.java:
 
 Define methods such as addUser(User user), getUserByUsername(String username), and validateLogin(String username, String password).
 DSAImpObj.java:
 
-Implement the DAOInterface.
+Implement the TheBetterDtoMapper.
 Use a binary file to store user profiles. Example methods:
 Serialize and save the User list.
 Deserialize and retrieve users.
@@ -65,7 +65,7 @@ FitnessGoal.java:
 Define attributes like goalId, userId, goalType (e.g., weight loss, calorie target), goalValue, and startDate.
 Add methods for encapsulation and goal-related functionality.
 2. Data Access Object (DAO)
-Extend DAOInterface:
+Extend TheBetterDtoMapper:
 
 Add methods like addGoal(FitnessGoal goal), getGoalsByUserId(int userId), etc.
 Update DSAImpObj.java:
