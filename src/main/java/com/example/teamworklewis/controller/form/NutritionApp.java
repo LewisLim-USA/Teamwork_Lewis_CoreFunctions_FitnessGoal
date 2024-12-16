@@ -68,7 +68,7 @@ public class NutritionApp extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         //FMXL File
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/teamworklewis/controller/form/nutrition.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/teamworklewis/View/nutrition.fxml"));
         Parent root = loader.load();  // This will load the FXML file
 
         System.out.println(getClass().getResource("/nutrition.fxml"));
@@ -83,7 +83,7 @@ public class NutritionApp extends Application {
         primaryStage.show();
 
         //gymicon
-        Image icon = new Image("gym icon.png");
+        Image icon = new Image(getClass().getResource("/com/example/teamworklewis/View/gym icon.png").toExternalForm());
         primaryStage.getIcons().add(icon);
 
     }
@@ -249,8 +249,13 @@ public class NutritionApp extends Application {
 
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("error icon.png"));
+
+// Correctly load the image from the resources folder
+        Image errorIcon = new Image(getClass().getResource("/com/example/teamworklewis/View/error icon.png").toExternalForm());
+
+        stage.getIcons().add(errorIcon);
         alert.showAndWait();
+
     }
 
 
@@ -330,7 +335,7 @@ public class NutritionApp extends Application {
         });
 
         // Set the image for the back button
-        Image backIcon = new Image("109618.png");
+        Image backIcon = new Image(getClass().getResource("/com/example/teamworklewis/View/109618.png").toExternalForm());
         ImageView imageView = new ImageView(backIcon);
 
 
