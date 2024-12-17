@@ -1,10 +1,10 @@
 package com.example.teamworklewis.controller.form;
+import com.example.teamworklewis.model.Meal;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.control.Button;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -27,7 +27,7 @@ import java.util.*;
 import java.util.List;
 
 
-public class NutritionApp extends Application {
+public class NutritionControllerForm extends Application {
 
     @FXML
     private TextField mealNameField;
@@ -61,9 +61,6 @@ public class NutritionApp extends Application {
     private Button backButton;
 
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -75,7 +72,7 @@ public class NutritionApp extends Application {
         System.out.println(getClass().getResource("/nutrition.fxml"));
 
 
-        NutritionApp controller = loader.getController();
+        NutritionControllerForm controller = loader.getController();
         controller.initialize();
 
         Scene scene = new Scene(root);
