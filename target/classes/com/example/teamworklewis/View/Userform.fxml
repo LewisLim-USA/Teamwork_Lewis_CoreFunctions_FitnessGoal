@@ -55,5 +55,6 @@
             <Image url="https://3dlook.ai/wp-content/uploads/2024/02/fitxpress-3.jpg" />
          </image>
       </ImageView>
+      <Button layoutX="16.0" layoutY="126.0" mnemonicParsing="false" onAction="#SwitchToNutritionApp" text="NutritionApp" />
    </children>
 </AnchorPane>
