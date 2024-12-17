@@ -1,4 +1,5 @@
 package com.example.teamworklewis.controller.form;
+import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.control.Button;
@@ -237,6 +238,34 @@ public class NutritionApp extends Application {
         applyPieChartColors(nutritionPieChart);
     }
 
+    @FXML
+    private void handleDeleteMeal() {
+        // Get selected meal from TableView
+        Meal selectedMeal = mealTable.getSelectionModel().getSelectedItem();
+
+        if (selectedMeal != null) {
+            LocalDate selectedDate = datePicker.getValue();
+            // Remove the selected meal from the mealLog
+            List<Meal> mealsForDay = mealLog.get(selectedDate);
+            if (mealsForDay != null) {
+                mealsForDay.remove(selectedMeal);
+                // If there are no more meals for the day, remove the date from the mealLog
+                if (mealsForDay.isEmpty()) {
+                    mealLog.remove(selectedDate);
+                }
+            }
+
+            // Save updated meal log to file
+            saveMealsToFile();
+
+            // Update the table and nutritional summaries
+            updateMealTable(selectedDate);
+            updateNutritionalSummaries(selectedDate);
+            updatePieChart(selectedDate);
+        } else {
+            showAlert("Selection Error", "Please select a meal to delete.");
+        }
+    }
 
 
 
@@ -346,13 +375,18 @@ public class NutritionApp extends Application {
         backButton.setGraphic(imageView);
     }
 
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     @FXML
-    private void handleBackButton() {
-        //this just standby
-        System.out.println("Back button clicked!");
-        Platform.exit();
+    public void SwitchToUserProfile(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/UserForm.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
+
 }
-
-
-

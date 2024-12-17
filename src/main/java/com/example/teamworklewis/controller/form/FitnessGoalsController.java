@@ -40,23 +40,23 @@ public class FitnessGoalsController extends Application {
 
 
         TextField nameField = new TextField();
-        nameField.setPromptText("请输入姓名 Enter your name");
+        nameField.setPromptText(" Enter your name");
 
         TextField ageField = new TextField();
-        ageField.setPromptText("请输入年龄 Enter your age");
+        ageField.setPromptText(" Enter your age");
 
         ComboBox<String> genderBox = new ComboBox<>();
-        genderBox.getItems().addAll("男 male", "女 Female");
-        genderBox.setPromptText("选择性别 Select gender");
+        genderBox.getItems().addAll(" male", " Female");
+        genderBox.setPromptText(" Select gender");
 
         TextField weightField = new TextField();
-        weightField.setPromptText("体重 (kg)");
+        weightField.setPromptText("Weight (kg)");
 
         TextField heightField = new TextField();
-        heightField.setPromptText("身高 (cm)");
+        heightField.setPromptText("Height(cm)");
 
         ComboBox<String> goalBox = new ComboBox<>();
-        goalBox.getItems().addAll("减脂lose weight", "增肌keep fit", "保持健康 keep healthy");
+        goalBox.getItems().addAll("lose weight", "keep fit", " keep healthy");
         goalBox.setPromptText("Select the target goal");
 
         VBox inputFields = new VBox(10, nameField, ageField, genderBox, weightField, heightField, goalBox);
@@ -118,17 +118,17 @@ public class FitnessGoalsController extends Application {
         StringBuilder plan = new StringBuilder();
         plan.append("according to your goal“").append(goal).append("”，give a plan  ：\n");
         switch (goal) {
-            case "减脂lose weight":
+            case "lose weight":
                 plan.append("- Perform 4-5 aerobic exercises per week (e.g., running, cycling)\n")
                         .append("- Each session lasts 30-60 minutes\n")
                         .append("- Control daily calorie intake and avoid high-sugar, high-fat foods\n");
                 break;
-            case "增肌keep fit":
+            case "keep fit":
                 plan.append("- Perform 3-4 strength training sessions per week (e.g., squats, bench press)\n")
                         .append("- Each session lasts 45-60 minutes\n")
                         .append("- Increase protein intake and maintain a calorie surplus\n");
                 break;
-            case "保持健康 keep healthy":
+            case " keep healthy":
                 plan.append("- Perform 3-4 moderate-intensity workouts per week (e.g., brisk walking, yoga)\n")
                         .append("- Maintain a balanced diet and ensure sufficient sleep\n");
                 break;
