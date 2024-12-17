@@ -1,4 +1,4 @@
-package com.example.teamworklewis.controller.form;
+package com.example.teamworklewis.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
