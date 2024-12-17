@@ -1,9 +1,8 @@
 package com.example.teamworklewis.model;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Meal implements Serializable {
+public class Meal {
     private String mealName;
     private int calories;
     private int protein;
@@ -11,7 +10,6 @@ public class Meal implements Serializable {
     private int carbs;
     private LocalDate date;
 
-    // Constructor
     public Meal(String mealName, int calories, int protein, int fat, int carbs) {
         this.mealName = mealName;
         this.calories = calories;
@@ -20,7 +18,7 @@ public class Meal implements Serializable {
         this.carbs = carbs;
     }
 
-    // Getters and Setters
+    // Getters and setters
     public String getMealName() {
         return mealName;
     }

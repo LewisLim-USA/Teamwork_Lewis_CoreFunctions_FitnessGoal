@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="570.0" prefWidth="797.0" style="-fx-background-color: #afc3c1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.NutritionApp">
+<AnchorPane prefHeight="570.0" prefWidth="797.0" style="-fx-background-color: #afc3c1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.NutritionControllerForm">
     <children>
         <!-- Meal Name Input -->
         <TextField fx:id="mealNameField" layoutX="348.0" layoutY="104.0" prefHeight="38.0" promptText="Enter meal name" AnchorPane.leftAnchor="348.0" AnchorPane.topAnchor="104.0" />
@@ -21,7 +21,7 @@
         <DatePicker fx:id="datePicker" layoutX="348.0" layoutY="153.0" prefHeight="38.0" prefWidth="200" AnchorPane.leftAnchor="348.0" AnchorPane.topAnchor="153.0" />
 
         <!-- Add Meal Button -->
-        <Button fx:id="addMealButton" onAction="#handleAddMeal" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: #ebd834;" text="Add Meal" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="675.0" AnchorPane.topAnchor="153.0" />
+        <Button fx:id="addMealButton" layoutX="563.0" layoutY="153.0" onAction="#handleAddMeal" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: #ebd834;" text="Add Meal" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="563.0" AnchorPane.topAnchor="153.0" />
 
         <!-- Nutritional Summary -->
         <Label fx:id="totalCaloriesLabel" layoutX="53.0" layoutY="459.0" text="Total Calories: 0cal" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="459.0">
@@ -47,6 +47,9 @@
                 <Font name="Bookman Old Style Bold" size="12.0" />
             </font>
         </Label>
+
+        <Button fx:id="deleteMealButton" layoutX="679.0" layoutY="153.0" onAction="#handleDeleteMeal" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: #ebd834;" text="Delete Meal" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="679.0" AnchorPane.topAnchor="153.0" />
+
 
         <!-- Pie Chart -->
         <PieChart fx:id="nutritionPieChart" labelLineLength="30.0" layoutX="9.0" layoutY="153.0" legendVisible="false" prefHeight="296.0" prefWidth="330.0" style="-fx-background-color: #6eadc2; -fx-border-color: #000000;" title="Nutritional Summaries" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="153.0" />
