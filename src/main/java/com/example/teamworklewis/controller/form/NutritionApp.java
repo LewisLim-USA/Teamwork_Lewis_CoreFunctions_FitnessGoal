@@ -26,7 +26,7 @@ import java.util.*;
 import java.util.List;
 
 
-public class NutritionController extends Application {
+public class NutritionApp extends Application {
 
     @FXML
     private TextField mealNameField;
@@ -68,12 +68,13 @@ public class NutritionController extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         //FMXL File
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/teamworklewis/View/nutrition.fxml"));
         Parent root = loader.load();  // This will load the FXML file
 
+        System.out.println(getClass().getResource("/nutrition.fxml"));
 
 
-        NutritionController controller = loader.getController();
+        NutritionApp controller = loader.getController();
         controller.initialize();
 
         Scene scene = new Scene(root);
@@ -82,7 +83,7 @@ public class NutritionController extends Application {
         primaryStage.show();
 
         //gymicon
-        Image icon = new Image("gym icon.png");
+        Image icon = new Image(getClass().getResource("/com/example/teamworklewis/View/gym icon.png").toExternalForm());
         primaryStage.getIcons().add(icon);
 
     }
@@ -236,6 +237,34 @@ public class NutritionController extends Application {
         applyPieChartColors(nutritionPieChart);
     }
 
+    @FXML
+    private void handleDeleteMeal() {
+        // Get selected meal from TableView
+        Meal selectedMeal = mealTable.getSelectionModel().getSelectedItem();
+
+        if (selectedMeal != null) {
+            LocalDate selectedDate = datePicker.getValue();
+            // Remove the selected meal from the mealLog
+            List<Meal> mealsForDay = mealLog.get(selectedDate);
+            if (mealsForDay != null) {
+                mealsForDay.remove(selectedMeal);
+                // If there are no more meals for the day, remove the date from the mealLog
+                if (mealsForDay.isEmpty()) {
+                    mealLog.remove(selectedDate);
+                }
+            }
+
+            // Save updated meal log to file
+            saveMealsToFile();
+
+            // Update the table and nutritional summaries
+            updateMealTable(selectedDate);
+            updateNutritionalSummaries(selectedDate);
+            updatePieChart(selectedDate);
+        } else {
+            showAlert("Selection Error", "Please select a meal to delete.");
+        }
+    }
 
 
 
@@ -248,8 +277,13 @@ public class NutritionController extends Application {
 
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("error icon.png"));
+
+// Correctly load the image from the resources folder
+        Image errorIcon = new Image(getClass().getResource("/com/example/teamworklewis/View/error icon.png").toExternalForm());
+
+        stage.getIcons().add(errorIcon);
         alert.showAndWait();
+
     }
 
 
@@ -329,7 +363,7 @@ public class NutritionController extends Application {
         });
 
         // Set the image for the back button
-        Image backIcon = new Image("109618.png");
+        Image backIcon = new Image(getClass().getResource("/com/example/teamworklewis/View/109618.png").toExternalForm());
         ImageView imageView = new ImageView(backIcon);
 
 
@@ -347,6 +381,3 @@ public class NutritionController extends Application {
         Platform.exit();
     }
 }
-
-
-
