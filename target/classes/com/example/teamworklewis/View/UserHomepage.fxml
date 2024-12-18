@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.29797979797979796" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="117.0" style="-fx-background-color: #008080;">
+         <children>
+            <Text fill="WHITE" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bodega Fitness" textAlignment="CENTER" wrappingWidth="175.33333333333337">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="58.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TRACKER" wrappingWidth="58.24024200439453" />
+            <BottomNavigationButton layoutX="4.0" layoutY="103.0" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #008080;" text="Profile" />
+            <BottomNavigationButton layoutX="4.0" layoutY="147.0" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #008080;" text="Settings" />
+            <BottomNavigationButton layoutX="3.0" layoutY="192.0" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #008080;" text="Customer Support" />
+            <Avatar layoutX="14.0" layoutY="347.0" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #b0e0e6;">
+         <children>
+            <Text fill="WHITE" layoutX="150.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" textAlignment="CENTER" wrappingWidth="115.31644630432129">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" style="-fx-background-color: #fffff;" text="Workout Plan" />
+            <Button layoutX="14.0" layoutY="158.0" mnemonicParsing="false" text="Nutrition Plans" />
+            <Button layoutX="13.0" layoutY="220.0" mnemonicParsing="false" text="Progress Visualization" />
+            <Button layoutX="13.0" layoutY="283.0" mnemonicParsing="false" text="Fitness Goals" />
+            <ImageView fitHeight="255.0" fitWidth="231.0" layoutX="171.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gym%20icon.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
