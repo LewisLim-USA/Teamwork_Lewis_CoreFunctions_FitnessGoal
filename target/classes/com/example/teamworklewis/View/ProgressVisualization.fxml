@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.ProgressVisualizationController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #008080;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.ProgressVisualizationController">
    <children>
-      <PieChart fx:id="nutritionPieChart" layoutX="401.0" layoutY="161.0" prefHeight="400.0" prefWidth="475.0" title="Calories consumed vs. calories burned" />
+      <SplitPane dividerPositions="0.1442953020134228" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #008080;">
+               <children>
+                  <Text fill="WHITE" layoutX="161.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Progress Visualization" wrappingWidth="274.24017333984375">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="backToHome" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#SwitchToUserProfile" text="Back" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #b0e0e6;">
+               <children>
+                  <PieChart layoutX="14.0" layoutY="22.0" prefHeight="272.0" prefWidth="388.0" style="-fx-background-color: #ffffff;" />
+                  <Text layoutX="65.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="calorie consumption vs. calories burned" wrappingWidth="233.33333333333326" />
+                  <TextField fx:id="calorieConsumption" layoutX="415.0" layoutY="69.0" />
+                  <TextField fx:id="caloriesBurned" layoutX="415.0" layoutY="134.0" />
+                  <Text layoutX="415.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="calorie consumption" />
+                  <Text layoutX="415.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="calories burned" wrappingWidth="102.66658528645826" />
+                  <Button fx:id="updateChartButton" layoutX="419.0" layoutY="187.0" mnemonicParsing="false" text="update" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

@@ -1,9 +1,7 @@
 package com.example.teamworklewis.controller.form;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
-import javafx.scene.control.Button;
+
+import com.example.teamworklewis.model.Meal;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -15,18 +13,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.json.JSONObject;
+
 import java.io.*;
 import java.net.*;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.List;
 
-
-public class NutritionController extends Application {
+public class NutritionControllerForm extends Application {
 
     @FXML
     private TextField mealNameField;
@@ -42,6 +38,8 @@ public class NutritionController extends Application {
     private Label totalCaloriesLabel, totalProteinLabel, totalFatLabel, totalCarbsLabel;
     @FXML
     private PieChart nutritionPieChart;
+    @FXML
+    private Button backButton;
 
     private final ObservableList<Meal> mealList = FXCollections.observableArrayList();
     private final Map<LocalDate, List<Meal>> mealLog = new HashMap<>();
@@ -56,37 +54,23 @@ public class NutritionController extends Application {
     private static final String APP_ID = "523dbe76";
     private static final String API_KEY = "20992bcfbe7d9491d9e0d94f72eba79b";
 
-    @FXML
-    private Button backButton;
 
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        //FMXL File
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main.fxml"));
-        Parent root = loader.load();  // This will load the FXML file
-
-
-
-        NutritionController controller = loader.getController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/teamworklewis/View/nutrition.fxml"));
+        Parent root = loader.load();
+        NutritionControllerForm controller = loader.getController();
         controller.initialize();
 
         Scene scene = new Scene(root);
         primaryStage.setTitle("Bodega Fitness Tracker");
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        //gymicon
-        Image icon = new Image("gym icon.png");
-        primaryStage.getIcons().add(icon);
-
     }
-
 
     @FXML
     private void handleAddMeal() {
@@ -94,12 +78,11 @@ public class NutritionController extends Application {
         LocalDate selectedDate = datePicker.getValue();
         if (!mealName.isEmpty()) {
             try {
-                //Data from API
                 Meal meal = fetchNutritionalData(mealName);
                 if (meal != null) {
                     meal.setDate(selectedDate);
                     addMealToLog(selectedDate, meal);
-                    saveMealsToFile();  // Save meals to file
+                    saveMealsToFile();
                     updateMealTable(selectedDate);
                     updateNutritionalSummaries(selectedDate);
                     updatePieChart(selectedDate);
@@ -115,7 +98,6 @@ public class NutritionController extends Application {
         }
     }
 
-
     private Meal fetchNutritionalData(String mealName) throws IOException {
         URL url = new URL(API_URL);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -126,20 +108,15 @@ public class NutritionController extends Application {
         connection.setDoOutput(true);
 
         String jsonInputString = "{\"query\": \"" + mealName + "\"}";
-
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
             os.write(input, 0, input.length);
         }
 
-        //Check the food got or not
         int responseCode = connection.getResponseCode();
         if (responseCode != HttpURLConnection.HTTP_OK) {
-            // If the response code is not 200, return null (no meal found)
-            showAlert("Error", "Failed to fetch nutritional data. Please check the meal name.");
             return null;
         }
-
 
         try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"))) {
             StringBuilder response = new StringBuilder();
@@ -147,12 +124,9 @@ public class NutritionController extends Application {
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
-
-            // Try parsing the JSON response
             return parseMealData(response.toString());
         }
     }
-
 
     private Meal parseMealData(String jsonResponse) {
         JSONObject json = new JSONObject(jsonResponse);
@@ -172,7 +146,6 @@ public class NutritionController extends Application {
         mealLog.putIfAbsent(date, new ArrayList<>());
         mealLog.get(date).add(meal);
     }
-
 
     private void updateMealTable(LocalDate selectedDate) {
         List<Meal> mealsForDay = mealLog.getOrDefault(selectedDate, new ArrayList<>());
@@ -200,6 +173,21 @@ public class NutritionController extends Application {
         totalCarbsLabel.setText("Total Carbs: " + dailyCarbs + "g");
     }
 
+    private void updatePieChart(LocalDate selectedDate) {
+        PieChart.Data calories = new PieChart.Data("Calories", dailyCalories);
+        PieChart.Data protein = new PieChart.Data("Protein", dailyProtein);
+        PieChart.Data fat = new PieChart.Data("Fat", dailyFat);
+        PieChart.Data carbs = new PieChart.Data("Carbs", dailyCarbs);
+
+
+        nutritionPieChart.getData().clear();
+        nutritionPieChart.getData().addAll(calories, protein, fat, carbs);
+
+
+        applyPieChartColors(nutritionPieChart);
+    }
+
+
     private void applyPieChartColors(PieChart pieChart) {
         //Piechart colour
         String[] sliceColors = {"#53a6ea", "#a133c3", "#ff3333", "#da9927"};
@@ -222,37 +210,21 @@ public class NutritionController extends Application {
 
 
 
-    private void updatePieChart(LocalDate selectedDate) {
-        PieChart.Data calories = new PieChart.Data("Calories", dailyCalories);
-        PieChart.Data protein = new PieChart.Data("Protein", dailyProtein);
-        PieChart.Data fat = new PieChart.Data("Fat", dailyFat);
-        PieChart.Data carbs = new PieChart.Data("Carbs", dailyCarbs);
-
-
-        nutritionPieChart.getData().clear();
-        nutritionPieChart.getData().addAll(calories, protein, fat, carbs);
-
-
-        applyPieChartColors(nutritionPieChart);
+    // Helper method to convert color to hex string for CSS styling
+    private String toHexString(javafx.scene.paint.Color color) {
+        return String.format("#%02x%02x%02x", (int)(color.getRed() * 255),
+                (int)(color.getGreen() * 255),
+                (int)(color.getBlue() * 255));
     }
-
-
-
 
 
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("warning");
+        alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
-
-
-        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("error icon.png"));
         alert.showAndWait();
     }
-
-
 
     private void saveMealsToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
@@ -262,7 +234,7 @@ public class NutritionController extends Application {
                     writer.write(date.toString() + "," + meal.getMealName() + "," +
                             meal.getCalories() + "," + meal.getProtein() + "," +
                             meal.getFat() + "," + meal.getCarbs());
-                    writer.newLine();  //
+                    writer.newLine();
                 }
             }
         } catch (IOException e) {
@@ -270,11 +242,8 @@ public class NutritionController extends Application {
         }
     }
 
-
-
     private void loadMealsFromFile() {
         mealLog.clear();
-
         File file = new File(FILE_PATH);
         if (file.exists()) {
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -289,7 +258,6 @@ public class NutritionController extends Application {
                         int fat = Integer.parseInt(mealData[4]);
                         int carbs = Integer.parseInt(mealData[5]);
 
-
                         Meal meal = new Meal(mealName, calories, protein, fat, carbs);
                         meal.setDate(date);
                         addMealToLog(date, meal);
@@ -300,7 +268,6 @@ public class NutritionController extends Application {
             }
         }
     }
-
 
 
     @FXML
@@ -327,26 +294,37 @@ public class NutritionController extends Application {
             updateNutritionalSummaries(selectedDate);
             updatePieChart(selectedDate);
         });
-
-        // Set the image for the back button
-        Image backIcon = new Image("109618.png");
-        ImageView imageView = new ImageView(backIcon);
-
-
-        imageView.setFitWidth(40);
-        imageView.setFitHeight(35);
-
-
-        backButton.setGraphic(imageView);
     }
 
+        @FXML
+    public void handleBackButton() {
+        // Logic for the back button
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
+    }
     @FXML
-    private void handleBackButton() {
-        //this just standby
-        System.out.println("Back button clicked!");
-        Platform.exit();
+    private void handleDeleteMeal() {
+        Meal selectedMeal = mealTable.getSelectionModel().getSelectedItem();
+
+        if (selectedMeal != null) {
+            LocalDate selectedDate = datePicker.getValue();
+            List<Meal> mealsForDay = mealLog.get(selectedDate);
+            if (mealsForDay != null) {
+                mealsForDay.remove(selectedMeal);
+                if (mealsForDay.isEmpty()) {
+                    mealLog.remove(selectedDate);
+                }
+            }
+
+
+            saveMealsToFile();
+            updateMealTable(selectedDate);
+            updateNutritionalSummaries(selectedDate);
+            updatePieChart(selectedDate);
+        } else {
+            showAlert("Selection Error", "Please select a meal to delete.");
+        }
     }
+
+
 }
-
-
-

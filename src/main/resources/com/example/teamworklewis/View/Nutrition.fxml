@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="570.0" prefWidth="797.0" style="-fx-background-color: #afc3c1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitness_tracker.NutritionApp">
+<AnchorPane prefHeight="570.0" prefWidth="797.0" style="-fx-background-color: #afc3c1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.NutritionControllerForm">
     <children>
         <!-- Meal Name Input -->
         <TextField fx:id="mealNameField" layoutX="348.0" layoutY="104.0" prefHeight="38.0" promptText="Enter meal name" AnchorPane.leftAnchor="348.0" AnchorPane.topAnchor="104.0" />
@@ -21,7 +21,10 @@
         <DatePicker fx:id="datePicker" layoutX="348.0" layoutY="153.0" prefHeight="38.0" prefWidth="200" AnchorPane.leftAnchor="348.0" AnchorPane.topAnchor="153.0" />
 
         <!-- Add Meal Button -->
-        <Button fx:id="addMealButton" onAction="#handleAddMeal" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: #ebd834;" text="Add Meal" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="675.0" AnchorPane.topAnchor="153.0" />
+        <Button fx:id="addMealButton" layoutX="578.0" layoutY="153.0" onAction="#handleAddMeal" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: #ebd834;" text="Add Meal" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="578.0" AnchorPane.topAnchor="153.0">
+            <font>
+                <Font name="Berlin Sans FB" size="12.0" />
+            </font></Button>
 
         <!-- Nutritional Summary -->
         <Label fx:id="totalCaloriesLabel" layoutX="53.0" layoutY="459.0" text="Total Calories: 0cal" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="459.0">
@@ -29,6 +32,12 @@
                 <Font name="Bookman Old Style Bold" size="12.0" />
             </font>
         </Label>
+
+        <Button fx:id="deleteMealButton" layoutX="679.0" layoutY="153.0" onAction="#handleDeleteMeal" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: #ebd834;" text="Delete Meal" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="679.0" AnchorPane.topAnchor="153.0">
+            <font>
+                <Font name="Berlin Sans FB" size="12.0" />
+            </font></Button>
+
 
         <Label fx:id="totalProteinLabel" layoutX="53.0" layoutY="479.0" text="Total Protein: 0g" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="479.0">
             <font>
@@ -60,7 +69,7 @@
         <!-- Header -->
         <Pane prefHeight="68.0" prefWidth="798.0" style="-fx-background-color: #346a5f;">
             <children>
-                <Button fx:id="backButton" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-color: #346a5f;" />
+                <Button fx:id="backButton" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#SwitchToUserProfile" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #346a5f;" />
                 <Text fill="#030101" layoutX="255.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutrition and Diet Plans">
                     <font>
                         <Font name="Berlin Sans FB Demi Bold" size="29.0" />
@@ -70,7 +79,7 @@
         </Pane>
 
         <!-- Meal Table -->
-        <TableView fx:id="mealTable" layoutX="348.0" layoutY="208.0" prefHeight="296.0" prefWidth="426.0">
+        <TableView fx:id="mealTable" layoutX="348.0" layoutY="199.0" prefHeight="305.0" prefWidth="426.0">
             <columns>
                 <TableColumn fx:id="mealColumn" prefWidth="107.20007705688477" text="Meal Name" />
                 <TableColumn fx:id="caloriesColumn" prefWidth="77.60003662109375" text="Calories (cal)" />
