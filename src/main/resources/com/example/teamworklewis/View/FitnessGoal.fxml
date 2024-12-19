@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.FitnessGoalsController">
+    <center>
+        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #FFFFFF;">
+            <!-- 左侧图片 -->
+            <VBox alignment="CENTER" prefHeight="448.0" prefWidth="300.0" spacing="10" style="-fx-background-color: #F0F0F0;">
+                <ImageView fitHeight="382.0" fitWidth="300" preserveRatio="true">
+                    <image>
+                        <Image url="https://img.tukuppt.com/ad_preview/00/05/66/5c98dd70e65de.jpg!/fw/980" />
+                    </image>
+                </ImageView>
+            </VBox>
+            <!-- 右侧输入和输出 -->
+            <VBox alignment="TOP_CENTER" spacing="15">
+                <Label text="Smart Sports Assistant" textFill="#4CAF50">
+                    <font>
+                        <Font name="Arial" size="24" />
+                    </font>
+                </Label>
+                <VBox spacing="10">
+                    <TextField fx:id="nameField" promptText="Enter your name" />
+                    <TextField fx:id="ageField" promptText="Enter your age" />
+                    <ComboBox fx:id="genderBox" promptText="Select gender" />
+                    <TextField fx:id="weightField" prefHeight="18.0" prefWidth="350.0" promptText="Weight (kg)" />
+                    <TextField fx:id="heightField" prefHeight="15.0" prefWidth="519.0" promptText="Height (cm)" />
+                    <ComboBox fx:id="goalBox" promptText="Select the target goal" />
+                </VBox>
+                <Button mnemonicParsing="false" text="Back" />
+                <Button fx:id="generatePlanButton" style="-fx-background-color: #171616; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-padding: 10px;" text="Give an opinion" />
+                <TextArea fx:id="resultArea" editable="false" promptText="Here will make a plan for you..." wrapText="true" />
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
