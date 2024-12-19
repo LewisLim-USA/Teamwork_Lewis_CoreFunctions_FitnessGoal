@@ -49,7 +49,7 @@ public class UserHompageControllerForm {
     }
 
     public void SwitchToFitnessGoals(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/controller/form/FitnessGoalsController.java"));
+        root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/FitnessGoal.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
