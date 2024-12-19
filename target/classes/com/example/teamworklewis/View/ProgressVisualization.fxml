@@ -19,12 +19,12 @@
                         <Font size="26.0" />
                      </font>
                   </Text>
-                  <Button fx:id="backToHome" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#SwitchToUserProfile" text="Back" />
+                  <Button fx:id="backToHome" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#SwitchToUserProfile" prefHeight="23.0" prefWidth="57.0" style="-fx-background-color: #008080;" text="Back" textFill="WHITE" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #b0e0e6;">
                <children>
-                  <PieChart layoutX="14.0" layoutY="22.0" prefHeight="272.0" prefWidth="388.0" style="-fx-background-color: #ffffff;" />
+                  <PieChart fx:id="pieChart" layoutX="14.0" layoutY="22.0" prefHeight="272.0" prefWidth="388.0" style="-fx-background-color: #ffffff;" />
                   <Text layoutX="91.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="calorie consumption vs. calories burned" wrappingWidth="233.33333333333326" />
                   <TextField fx:id="calorieConsumption" layoutX="415.0" layoutY="69.0" />
                   <TextField fx:id="caloriesBurned" layoutX="415.0" layoutY="134.0" />
