@@ -11,7 +11,7 @@ public class JavaFxApp extends Application {
     public void start(Stage stage) throws Exception{
         try {
             // Ensure the path to the FXML file is correct
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/UserForm.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/userLoginpage.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/com/example/teamworklewis/View/styles.css").toExternalForm());
             stage.setTitle("Fitness Tracking Application");

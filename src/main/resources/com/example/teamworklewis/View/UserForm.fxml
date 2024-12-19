@@ -56,5 +56,6 @@
          </image>
       </ImageView>
       <Button layoutX="16.0" layoutY="126.0" mnemonicParsing="false" onAction="#SwitchToNutritionApp" text="NutritionApp" />
+      <Button layoutX="18.0" layoutY="163.0" mnemonicParsing="false" onAction="#SwitchToLoginPage" text="Login" />
    </children>
 </AnchorPane>
