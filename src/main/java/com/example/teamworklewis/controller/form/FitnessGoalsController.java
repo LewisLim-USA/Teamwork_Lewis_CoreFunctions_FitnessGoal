@@ -1,7 +1,15 @@
 package com.example.teamworklewis.controller.form;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class FitnessGoalsController {
 
@@ -22,6 +30,17 @@ public class FitnessGoalsController {
     @FXML
     private Button generatePlanButton;
 
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    public void SwitchToUserHomepage(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/UserHomepage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     @FXML
     public void initialize() {
 

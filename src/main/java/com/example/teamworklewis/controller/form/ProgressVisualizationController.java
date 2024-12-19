@@ -39,7 +39,7 @@ public class ProgressVisualizationController {
 
 
 
-    public void SwitchToUserProfile(ActionEvent event) throws IOException {
+    public void SwitchToUserHomepage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/UserForm.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

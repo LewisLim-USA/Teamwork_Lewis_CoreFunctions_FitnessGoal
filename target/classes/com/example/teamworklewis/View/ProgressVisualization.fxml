@@ -19,7 +19,7 @@
                         <Font size="26.0" />
                      </font>
                   </Text>
-                  <Button fx:id="backToHome" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#SwitchToUserProfile" prefHeight="23.0" prefWidth="57.0" style="-fx-background-color: #008080;" text="Back" textFill="WHITE" />
+                  <Button fx:id="backToHome" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#SwitchToUserHomepage" prefHeight="23.0" prefWidth="57.0" style="-fx-background-color: #008080;" text="Back" textFill="WHITE" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #b0e0e6;">

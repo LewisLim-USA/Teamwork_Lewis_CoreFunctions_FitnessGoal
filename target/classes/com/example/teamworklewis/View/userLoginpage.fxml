@@ -36,7 +36,7 @@
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="Login" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" onAction="#SwitchToUserProfile" prefHeight="23.0" prefWidth="121.0" style="-fx-background-color: #000000;" text="Login As User" textFill="WHITE" />
+      <Button fx:id="Login" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" onAction="#SwitchToUserHomepage" prefHeight="23.0" prefWidth="121.0" style="-fx-background-color: #000000;" text="Login As User" textFill="WHITE" />
       <Button layoutX="401.0" layoutY="300.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Create an account" />
       <Text fill="#c5c5c5" layoutX="455.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" />
       <Button fx:id="Login1" layoutX="438.0" layoutY="250.0" mnemonicParsing="false" onAction="#SwitchToAdminProfile" prefHeight="23.0" prefWidth="121.0" style="-fx-background-color: #000000;" text="Login As Admin" textFill="WHITE" />
