@@ -28,7 +28,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="108.0" prefWidth="736.0" style="-fx-background-color: #afc3c1;">
                <children>
-                  <MenuButton layoutX="456.0" layoutY="99.0" mnemonicParsing="false" onAction="#workoutPlanLabel" prefHeight="18.0" prefWidth="201.0" text="Choose Workout Type">
+                  <MenuButton layoutX="456.0" layoutY="99.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="201.0" text="Choose Workout Type">
                     <items>
                         <MenuItem mnemonicParsing="false" text="Walking" />
                         <MenuItem mnemonicParsing="false" text="Swimming" />

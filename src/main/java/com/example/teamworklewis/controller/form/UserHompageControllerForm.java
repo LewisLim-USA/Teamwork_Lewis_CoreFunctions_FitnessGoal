@@ -24,8 +24,8 @@ public class UserHompageControllerForm {
         stage.show();
     }
 
-    public void SwitchToUserSetting(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/UserSetting.fxml"));
+    public void SwitchToWorkoutPlans(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/WorkoutPlan-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
