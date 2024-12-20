@@ -12,7 +12,7 @@ import java.io.IOException;
 public class NutritionController {
 
     public void SwitchToUserHomepage(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/UserForm.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/teamworklewis/View/UserFormAdmin.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
