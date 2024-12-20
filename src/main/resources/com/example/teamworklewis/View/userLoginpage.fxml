@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="356.0" fitWidth="322.0" layoutX="27.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@gym%20icon.png" />
+            <Image url="@gym_icon.png" />
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="405.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello Again!" textAlignment="CENTER" wrappingWidth="154.07943725585938">
@@ -31,7 +31,7 @@
       <TextField fx:id="EmailOrPhone" layoutX="381.0" layoutY="118.0" />
       <Text fill="#c5c5c5" layoutX="381.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :" />
       <TextField fx:id="Password" layoutX="381.0" layoutY="182.0" />
-      <Button layoutX="453.0" layoutY="206.0" mnemonicParsing="false" style="-fx-background-color: #008080;" text="Forgot Password?" textFill="#c5c5c5">
+      <Button layoutX="453.0" layoutY="206.0" mnemonicParsing="false" onAction="#SwitchToForgotPassword" style="-fx-background-color: #008080;" text="Forgot Password?" textFill="#c5c5c5">
          <font>
             <Font size="10.0" />
          </font>

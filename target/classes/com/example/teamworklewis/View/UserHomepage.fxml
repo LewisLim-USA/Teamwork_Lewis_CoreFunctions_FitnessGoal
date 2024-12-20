@@ -20,7 +20,7 @@
             <Text fill="WHITE" layoutX="58.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TRACKER" wrappingWidth="58.24024200439453" />
              <Button layoutX="4.0" layoutY="103.0" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #008080;" text="Profile" />
              <Button layoutX="4.0" layoutY="147.0" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #008080;" text="Settings" />
-             <Button layoutX="3.0" layoutY="192.0" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #008080;" text="Customer Support" />
+             <Button layoutX="3.0" layoutY="192.0" onAction="#SwitchToForgotPassword" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #008080;" text="Forgot Password?" />
              <ImageView layoutX="14.0" layoutY="347.0" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #b0e0e6;">
@@ -30,7 +30,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" style="-fx-background-color: #fffff;" text="Workout Plan" />
+            <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#SwitchToWorkoutPlans" style="-fx-background-color: #fffff;" text="Workout Plan" />
             <Button layoutX="14.0" layoutY="158.0" mnemonicParsing="false" onAction="#SwitchToNutritionApp" text="Nutrition Plans" />
             <Button layoutX="13.0" layoutY="220.0" mnemonicParsing="false" onAction="#SwitchToProgressVisualization" text="Progress Visualization" />
             <Button layoutX="13.0" layoutY="283.0" mnemonicParsing="false" onAction="#SwitchToFitnessGoals" text="Fitness Goals" />
