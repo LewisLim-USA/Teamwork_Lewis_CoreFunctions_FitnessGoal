@@ -13,58 +13,60 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="738.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamworklewis.controller.form.WorkoutPlansControllerForm">
-   <children>
-      <AnchorPane layoutY="218.0" />
-      <SplitPane dividerPositions="0.11966987620357634" layoutX="268.0" layoutY="178.0" orientation="VERTICAL" prefHeight="729.0" prefWidth="738.0" style="-fx-background-color: teal;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="736.0">
-               <children>
-                  <Label contentDisplay="CENTER" layoutX="245.0" layoutY="14.0" prefHeight="58.0" prefWidth="201.0" text="Workout Plan" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold Italic" size="30.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="108.0" prefWidth="736.0" style="-fx-background-color: #afc3c1;">
-               <children>
-                  <MenuButton layoutX="456.0" layoutY="99.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="201.0" text="Choose Workout Type">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Walking" />
-                        <MenuItem mnemonicParsing="false" text="Swimming" />
-                      <MenuItem mnemonicParsing="false" text="Push-ups" />
-                      <MenuItem mnemonicParsing="false" text="Step-up &amp; Step-downs" />
-                        <MenuItem mnemonicParsing="false" text="Squats " />
-                        <MenuItem mnemonicParsing="false" text="Burpee" />
-                        <MenuItem mnemonicParsing="false" text="Crunches" />
-                        <MenuItem mnemonicParsing="false" text="Jumping Jacks" />
-                    </items>
-                  </MenuButton>
-                  <Label layoutX="456.0" layoutY="82.0" prefHeight="17.0" prefWidth="201.0" text="Type of Excercise" />
-                  <DatePicker layoutX="456.0" layoutY="174.0" />
-                  <Label layoutX="456.0" layoutY="151.0" text="Date of Exercise" />
-                  <Button layoutX="37.0" layoutY="598.0" mnemonicParsing="false" text="Back" />
-                  <TableView layoutX="49.0" layoutY="99.0" prefHeight="307.0" prefWidth="327.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Date" />
-                      <TableColumn prefWidth="75.0" text="Type " />
-                        <TableColumn prefWidth="75.0" text="Intensity" />
-                        <TableColumn prefWidth="100.0" text="Calories Burnt" />
-                    </columns>
-                  </TableView>
-                  <MenuButton layoutX="456.0" layoutY="248.0" mnemonicParsing="false" text="MenuButton">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Easy" />
-                      <MenuItem mnemonicParsing="false" text="Moderately Easy" />
-                        <MenuItem mnemonicParsing="false" text="Medium" />
-                        <MenuItem mnemonicParsing="false" text="Moderately Medium" />
-                        <MenuItem mnemonicParsing="false" text="Hard" />
-                    </items>
-                  </MenuButton>
-                  <Label layoutX="456.0" layoutY="231.0" text="Intenisty of Exercise" />
-                  <TextArea layoutX="37.0" layoutY="541.0" prefHeight="46.0" prefWidth="663.0" style="-fx-background-color: salmon;" text="Note : The &quot;Instensity&quot; refers to the person's effort in completing the workout in the time stipulated. &#10;Example (As reference)  : Easy - ( In 30 minutes,  9 Laps of Swimming ) Medium - ( In 30 minutes, 16 Laps of Swimming)" />
-               </children></AnchorPane>
-        </items>
-      </SplitPane>
-   </children>
+    <children>
+        <AnchorPane layoutY="218.0" />
+        <SplitPane dividerPositions="0.11966987620357634" layoutX="268.0" layoutY="178.0" orientation="VERTICAL" prefHeight="729.0" prefWidth="738.0" style="-fx-background-color: teal;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="736.0">
+                    <children>
+                        <Label contentDisplay="CENTER" layoutX="245.0" layoutY="14.0" prefHeight="58.0" prefWidth="201.0" text="Workout Plan" textAlignment="CENTER">
+                            <font>
+                                <Font name="System Bold Italic" size="30.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="108.0" prefWidth="736.0" style="-fx-background-color: #afc3c1;">
+                    <children>
+                        <MenuButton fx:id="WorkoutType" layoutX="456.0" layoutY="99.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="201.0" text="Choose Workout Type">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Walking" />
+                                <MenuItem mnemonicParsing="false" text="Swimming" />
+                                <MenuItem mnemonicParsing="false" text="Push-ups" />
+                                <MenuItem mnemonicParsing="false" text="Step-up &amp; Step-downs" />
+                                <MenuItem mnemonicParsing="false" text="Squats " />
+                                <MenuItem mnemonicParsing="false" text="Burpee" />
+                                <MenuItem mnemonicParsing="false" text="Crunches" />
+                                <MenuItem mnemonicParsing="false" text="Jumping Jacks" />
+                            </items>
+                        </MenuButton>
+                        <Label layoutX="456.0" layoutY="82.0" prefHeight="17.0" prefWidth="201.0" text="Type of Excercise" />
+                        <DatePicker fx:id="DatePickerwk" layoutX="456.0" layoutY="174.0" />
+                        <Label layoutX="456.0" layoutY="151.0" text="Date of Exercise" />
+                        <Button layoutX="37.0" layoutY="598.0" mnemonicParsing="false" text="Back" />
+                        <TableView fx:id="workoutplantable" layoutX="49.0" layoutY="99.0" prefHeight="307.0" prefWidth="327.0">
+                            <columns>
+                                <TableColumn fx:id="DateColumn" prefWidth="75.0" text="Date" />
+                                <TableColumn fx:id="TypeWkColumn" prefWidth="75.0" text="Type " />
+                                <TableColumn fx:id="IntensityColumn" prefWidth="75.0" text="Intensity" />
+                                <TableColumn fx:id="CaloriesBurntColumn" prefWidth="100.0" text="Calories Burnt" />
+                            </columns>
+                        </TableView>
+                        <MenuButton fx:id="IntensityType" layoutX="456.0" layoutY="248.0" mnemonicParsing="false" text="Choose Intensity">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Easy" />
+                                <MenuItem mnemonicParsing="false" text="Moderately Easy" />
+                                <MenuItem mnemonicParsing="false" text="Medium" />
+                                <MenuItem mnemonicParsing="false" text="Moderately Medium" />
+                                <MenuItem mnemonicParsing="false" text="Hard" />
+                            </items>
+                        </MenuButton>
+                        <Label layoutX="456.0" layoutY="231.0" text="Intenisty of Exercise" />
+                        <TextArea layoutX="37.0" layoutY="541.0" prefHeight="46.0" prefWidth="663.0" style="-fx-background-color: salmon;" text="Note : The &quot;Instensity&quot; refers to the person's effort in completing the workout in the time stipulated. &#10;Example (As reference)  : Easy - ( In 30 minutes,  9 Laps of Swimming ) Medium - ( In 30 minutes, 16 Laps of Swimming)" />
+                        <Button fx:id="AddWorkLog" layoutX="456.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleAddLog" text="Add Log" />
+                        <Button fx:id="DeleteWorkLog" layoutX="605.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleDeleteLog" text="Delete Log" />
+                    </children></AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
 </AnchorPane>
